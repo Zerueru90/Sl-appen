@@ -4,11 +4,13 @@
     overflow: visible;
     width: 25%;
     height: 5%;
-    left: 33%;
+    left: 34%;
     top: 20%;
+
     font-size: x-large;
     border-style: solid;
     border-color: rgb(44, 104, 93);
+    opacity: 85% ;
 }
 
 #searchBtn{
@@ -21,16 +23,66 @@
 		top: 20.2%;
         border-style: solid;
         border-color: rgb(44, 104, 93);
+        opacity: 85% ;
+}
+
+#searchBtn-Text{
+    display : flex;
+    align-items : center;
+    height: 100%;
+    margin-left: 5%;
+    font-size: x-large;
 }
 
 #dataDisplay{
+    
     position: absolute;
     overflow: visible;
     width: 40%;
-    height: 50%;
+    height: 40%;
+    left: 30%;
+    top: 35%;
+    
+    border-style: solid;
+    border-color: rgb(44, 104, 93);
+    background-color: white;
+    opacity: 85% ;
+
+    /* Denna skapar en skroll och att texten inte går utanför diven */
+    overflow: hidden;
+    white-space: nowrap;
+    overflow: auto;
+}
+
+#dataDisplay-Text{
+    font-size: large;
+    list-style-type: none;
+    
+    /*Ser till att idn hamnar i den grid jag vill*/
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "#first #second #third"
+}
+
+#dataDisplay-Top{
+    position: absolute;
+    overflow: visible;
+    width: 40%;
+    height: 5%;
     left: 30%;
     top: 30%;
     border-style: solid;
     border-color: rgb(44, 104, 93);
     background-color: white;
+    opacity: 85% ;
+}
+
+#textDisplay-Top{
+    display : flex;
+    align-items : center;
+    height: 100%;
+    margin-left: 5%;
+    font-size: x-large;
 }
