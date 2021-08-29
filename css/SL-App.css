@@ -1,0 +1,31 @@
+#stationInput{
+    display: flex;
+    position:absolute;
+    overflow: visible;
+    width: 25%;
+    height: 5%;
+    left: 33%;
+    top: 20%;
+    font-size: x-large;
+}
+
+#searchBtn{
+    display: flex;
+    position: absolute;
+		overflow: visible;
+		width: 5%;
+		height: 5%;
+		left: 60%;
+		top: 20.2%;
+}
+
+#dataDisplay{
+    position: absolute;
+    overflow: visible;
+    width: 40%;
+    height: 50%;
+    left: 30%;
+    top: 30%;
+    border-style: solid;
+    border-color: rgb(44, 104, 93);
+}
