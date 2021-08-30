@@ -24,6 +24,7 @@
         border-style: solid;
         border-color: rgb(44, 104, 93);
         opacity: 85% ;
+        box-shadow: inset 0px 0px 5px #c1c1c1;
 }
 
 #searchBtn-Text{
