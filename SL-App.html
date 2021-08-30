@@ -12,10 +12,15 @@
 <body style="background-image: url(photo-1613499778020-d7cf8aad77.png);">
     <p id="test" style="font-size: xx-large; color: red;"></p>
 
-    <input type="text" id="stationInput" name="station" placeholder="Hållplats">
-        <button type="button" id="searchBtn" onclick="GetStationID(stationInput)" value="Submit form">
-            <label id="searchBtn-Text">Sök</label>
-        </button>
+    <!-- list="stations"  -->
+    <input list="stations" onkeyup="testingFunc(stationInput)" type="text" id="stationInput" name="station" placeholder="Hållplats">
+    <datalist id="stations">
+        
+    </datalist>
+
+    <button type="button" id="searchBtn" onclick="GetStationID(stationInput)" value="Submit form">
+        <label id="searchBtn-Text">Sök</label>
+    </button>
 
     <div id="dataDisplay-Top">
 
