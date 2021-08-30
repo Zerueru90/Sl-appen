@@ -2,6 +2,39 @@
 //     setInterval(Start, 60000);
 // };
 
+function testingFunc(charing)
+{
+    var charachterLenght = charing.value;
+
+    if (charachterLenght.length >= 3) 
+    {
+        const url = `https://cors-anywhere.herokuapp.com/http://api.sl.se/api2/typeahead.json?key=494288bb92614e8cb19a001768f94f65&searchstring=${charing.value}&stationsonly=true`;
+
+        const optionsList = document.getElementById("stations");
+        
+        fetch(url)
+
+        .then((reps) => reps.json())
+
+            .then(function (data)
+            {
+
+                document.getElementById("stations").innerHTML = "";
+                
+                let stations = data.ResponseData;
+
+                stations.map(function (station)
+                {
+                    let div = creatingElement('option');
+
+                    div.innerHTML = station.Name;
+                    
+                    append(optionsList, div);
+                })
+            })
+    }
+}
+
 function creatingElement(element) 
 {
     return document.createElement(element);
@@ -102,7 +135,7 @@ function Start()
 
                 })
 
-                setInterval(Start, 3000);
+                // setInterval(Start, 3000);
                 //clearInterval(stopInterval);
 
             })
