@@ -12,12 +12,12 @@
 <body style="background-image: url(photo-1613499778020-d7cf8aad77.png);">
     <p id="test" style="font-size: xx-large; color: red;"></p>
 
-    <!-- list="stations"  -->
     <input list="stations" onkeyup="ReturnStationNamesForList(stationInput)" type="text" id="stationInput" name="station" placeholder="Hållplats">
-    <datalist id="stations">
-        
-    </datalist>
+    <datalist id="stations"></datalist>
 
+    <input type="radio" id="radioBtn" value="Gångväg">
+    <label for="radioBtn" id="radioLabel">Gångväg</label>
+    
     <button type="button" id="searchBtn" onclick="GetStationID(stationInput)" value="Submit form">
         <label id="searchBtn-Text">Sök</label>
     </button>
@@ -32,6 +32,7 @@
 
     <div id="dataDisplay">
         <div id="dataDisplay-Text">
+            <div id="symbol"></div>
             <div id="first"></div>
             <div id="second"></div>
             <div id="third"></div>
