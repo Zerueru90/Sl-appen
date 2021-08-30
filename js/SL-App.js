@@ -50,11 +50,8 @@ let id;
 
 function GetStationID(stationName)
 {
-
     const url = `https://cors-anywhere.herokuapp.com/http://api.sl.se/api2/typeahead.json?key=494288bb92614e8cb19a001768f94f65&searchstring=${stationName.value}&stationsonly=true`;
   
-    //document.getElementById("test").innerHTML = url;
-
     fetch(url)
 
         .then((reps) => reps.json())
@@ -66,12 +63,6 @@ function GetStationID(stationName)
 
                 stations.map(function (station)
                 {
-
-                    // if(containsWord(station.Name, stationName.value)) 
-                    // {
-                    //     //document.getElementById("test").innerHTML = station.Name;
-                    //     Start(station.SiteId);
-                    // }
                     if(station.Name === stationName.value) 
                     {
                         id = station.SiteId;
@@ -130,12 +121,3 @@ function Start()
             document.getElementById("dataDisplay-Text").innerHTML = error;
         })
 }
-
-function diff_minutes(dt2, dt1) 
- {
-
-    var diff =(dt2.getTime() - dt1.getTime()) / 1000;
-    diff /= 60;
-    return Math.abs(Math.round(diff));
-  
- }
