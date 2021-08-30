@@ -47,6 +47,7 @@ function containsWord(str, word)
 }
 
 let id;
+let symbolName;
 
 function GetStationID(stationName)
 {
@@ -77,15 +78,18 @@ function GetStationID(stationName)
 function Start()
 {
 
+    document.getElementById("textDisplay-Top").innerHTML = "";
+    document.getElementById("symbol").innerHTML = "";
     document.getElementById("first").innerHTML = "";
     document.getElementById("second").innerHTML = "";
     document.getElementById("third").innerHTML = "";
 
+    const symbol = document.getElementById("symbol");
     const first = document.getElementById("first");
     const second = document.getElementById("second");
     const third = document.getElementById("third");
     
-    const url = `https://cors-anywhere.herokuapp.com/http://api.sl.se/api2/realtimedeparturesV4.json?key=1c426b82dcf3493a9021f2db8e82717c&siteid=${id}&timewindow=20`;
+    const url = `https://cors-anywhere.herokuapp.com/http://api.sl.se/api2/realtimedeparturesV4.json?key=1c426b82dcf3493a9021f2db8e82717c&siteid=${id}&timewindow=30`;
 
     fetch(url)
 
@@ -93,27 +97,143 @@ function Start()
 
             .then(function (data){
                 
-                let trains = data.ResponseData.Trains;
+                let transport = data.ResponseData;
 
-                trains.map(function (train)
+                if (transport.Buses.length != 0) 
                 {
-                    let lineNumber = creatingElement('div'),
+                    symbolName = "Buss"
+                        
+                    let transport = data.ResponseData.Buses;
+
+                    transport.map(function (transports) 
+                    {
+                        let transportName = creatingElement('div');
+                        lineNumber = creatingElement('div'),
                         destinationName = creatingElement('div')
                         time = creatingElement('div');
+    
+                        transportName.innerHTML = symbolName;
+                        lineNumber.innerHTML = transports.LineNumber;
+                        destinationName.innerHTML = transports.Destination;
+                        time.innerHTML = transports.DisplayTime;
 
+                        document.getElementById("textDisplay-Top").innerHTML = transports.StopAreaName;
 
-                    lineNumber.innerHTML = train.LineNumber;
-                    destinationName.innerHTML = train.Destination;
-                    time.innerHTML = train.DisplayTime;
+                        append(symbol, transportName);
+                        append(first, lineNumber);
+                        append(second, destinationName);
+                        append(third, time);
+                    })
 
-                    document.getElementById("textDisplay-Top").innerHTML = train.StopAreaName;
+                }
+                if (transport.Metros.length != 0) 
+                {
+                    symbolName = "Tåg"
+                    
+                    let transport = data.ResponseData.Metros;
 
+                    transport.map(function (transports) 
+                    {
+                        let transportName = creatingElement('div');
+                        lineNumber = creatingElement('div'),
+                        destinationName = creatingElement('div')
+                        time = creatingElement('div');
+    
+                        transportName.innerHTML = symbolName;
+                        lineNumber.innerHTML = transports.LineNumber;
+                        destinationName.innerHTML = transports.Destination;
+                        time.innerHTML = transports.DisplayTime;
+
+                        document.getElementById("textDisplay-Top").innerHTML = transports.StopAreaName;
+
+                        append(symbol, transportName);
+                        append(first, lineNumber);
+                        append(second, destinationName);
+                        append(third, time);
+                    })
+
+                }
+                if (transport.Trains.length != 0) 
+                {
+                    symbolName = "Pendel"
+                        
+                    let transport = data.ResponseData.Trains;
+
+                    transport.map(function (transports) 
+                    {
+                        let transportName = creatingElement('div');
+                        lineNumber = creatingElement('div'),
+                        destinationName = creatingElement('div')
+                        time = creatingElement('div');
+    
+                        transportName.innerHTML = symbolName;
+                        lineNumber.innerHTML = transports.LineNumber;
+                        destinationName.innerHTML = transports.Destination;
+                        time.innerHTML = transports.DisplayTime;
+
+                        document.getElementById("textDisplay-Top").innerHTML = transports.StopAreaName;
+
+                        append(symbol, transportName);
+                        append(first, lineNumber);
+                        append(second, destinationName);
+                        append(third, time);
+                    })
+                }
+                if (transport.Trams.length != 0) 
+                {
+                    symbolName = "Spårvagn"
+                        
+                    let transport = data.ResponseData.Trams;
+
+                    transport.map(function (transports) 
+                    {
+                        let transportName = creatingElement('div');
+                        lineNumber = creatingElement('div'),
+                        destinationName = creatingElement('div')
+                        time = creatingElement('div');    
+
+                        transportName.innerHTML = symbolName;
+                        lineNumber.innerHTML = transports.LineNumber;
+                        destinationName.innerHTML = transports.Destination;
+                        time.innerHTML = transports.DisplayTime;
+
+                        document.getElementById("textDisplay-Top").innerHTML = transports.StopAreaName;
+
+                        append(symbol, transportName);
+                        append(first, lineNumber);
+                        append(second, destinationName);
+                        append(third, time);
+                    })
+
+                }
+                if (transport.Ships.length != 0) 
+                {
+                    symbolName = "Båt"
+                        
+                    let transport = data.ResponseData.Ships;
+
+                    transport.map(function (transports) 
+                    {
+
+                    let transportName = creatingElement('div');
+                    lineNumber = creatingElement('div'),
+                    destinationName = creatingElement('div')
+                    time = creatingElement('div');
+
+                    transportName.innerHTML = symbolName;
+                    lineNumber.innerHTML = transports.LineNumber;
+                    destinationName.innerHTML = transports.Destination;
+                    time.innerHTML = transports.DisplayTime;
+
+                    document.getElementById("textDisplay-Top").innerHTML = transports.StopAreaName;
+
+                    append(symbol, transportName);
                     append(first, lineNumber);
                     append(second, destinationName);
                     append(third, time);
-
-                })
-
+                    })
+                }
+                
                  setInterval(Start, 60000);
             })
 
@@ -121,3 +241,12 @@ function Start()
             document.getElementById("dataDisplay-Text").innerHTML = error;
         })
 }
+
+function diff_minutes(dt2, dt1) 
+ {
+
+    var diff =(dt2.getTime() - dt1.getTime()) / 1000;
+    diff /= 60;
+    return Math.abs(Math.round(diff));
+
+ }
