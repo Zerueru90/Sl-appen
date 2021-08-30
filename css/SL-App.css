@@ -30,8 +30,9 @@
     display : flex;
     align-items : center;
     height: 100%;
-    margin-left: 5%;
+    margin-left: 20%;
     font-size: x-large;
+    overflow: hidden;
 }
 
 #dataDisplay{
@@ -60,7 +61,7 @@
     
     /*Ser till att idn hamnar i den grid jag vill*/
     display: grid;
-    grid-template-columns: 20% 60% 20%;
+    grid-template-columns: 20% 58% 20%;
     grid-template-rows: auto;
     grid-template-areas:
     "#first #second #third"
