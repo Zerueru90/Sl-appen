@@ -2,7 +2,7 @@
 //     setInterval(Start, 60000);
 // };
 
-function testingFunc(charing)
+function ReturnStationNamesForList(charing)
 {
     var charachterLenght = charing.value;
 
