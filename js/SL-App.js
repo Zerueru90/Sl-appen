@@ -44,11 +44,6 @@ function append(parent, el)
     return parent.appendChild(el);
 }
 
-function containsWord(str, word) 
-{
-    return str.match(new RegExp("\\b" + word + "\\b")) != null;
-}
-
 function GetStationID(stationName)
 {
     const url = `https://cors-anywhere.herokuapp.com/http://api.sl.se/api2/typeahead.json?key=494288bb92614e8cb19a001768f94f65&searchstring=${stationName.value}&stationsonly=true`;
@@ -59,7 +54,6 @@ function GetStationID(stationName)
 
             .then(function (data)
             {
-
                 let stations = data.ResponseData;
 
                 stations.map(function (station)
@@ -69,23 +63,17 @@ function GetStationID(stationName)
                         id = station.SiteId;
                         document.getElementById("textDisplay-Top").innerHTML = stationName.value;
                     }
-
                 })
-
                 Start();
             })
 }
 
 function Clean()
 {
-    //document.getElementById("dataDisplay").innerHTML = "";
-
-    // document.getElementById("textDisplay-Top").innerHTML = "";
     document.getElementById("symbol").innerHTML = "";
     document.getElementById("first").innerHTML = "";
     document.getElementById("second").innerHTML = "";
     document.getElementById("third").innerHTML = "";
-
 }
 
 function Start()
@@ -171,11 +159,9 @@ function LoopyDoopy(transport)
 
 function ChangeTime()
 {
-    
-    let check = document.getElementById("radioBtn")
-    if (check.checked === false) 
+    if (document.getElementById("radioBtn").checked === false) 
     {
-        var checking = 0;
+        Start();
     }
     
     var elem3 = document.getElementById("third");
@@ -187,17 +173,12 @@ function ChangeTime()
             let test = elem3.childNodes[i].innerHTML;
             let nr = parseInt(test);
 
-            if (nr > 10) 
+            if (nr > 5) 
             { 
-                let minus = nr - 10;
+                let minus = nr - 5;
                 elem3.childNodes[i].innerHTML = minus + " " + "min";
             }
         }
 
     }
-}
-
-function ChangeTimeBack()
-{
-    document.getElementById("radioBtn").checked = false;
 }
