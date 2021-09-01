@@ -181,15 +181,45 @@ function ChangeTime()
     // second.remove();
     // third.remove();
 
-    var elem = document.getElementById("symbol");
-    elem.parentNode.removeChild(elem);
+    //Info - elem3, man kan få en lång string i elem3.innerHTML eller innerText. Man kan substringa 
+    //och ta värden.
+    //Info2 - elem3, man kan nå strängar i varje div genom elem3.children.div.innerHTML
 
-    var elem1 = document.getElementById("first");
-    elem1.parentNode.removeChild(elem1);
+    //Samla alla third element, gå igenom varje och kolla om värdet är större än 10min. 
+    //Om Ja, så gör minus 10.
+    //Om Nej, låt dem vara?
 
-    var elem2 = document.getElementById("second");
-    elem2.parentNode.removeChild(elem2);
-
+    
     var elem3 = document.getElementById("third");
-    elem3.parentNode.removeChild(elem3);
+
+    //elem3.childNodes
+
+
+    for (let i = 0; i < elem3.childNodes.length; i++) 
+    {
+        if (elem3.childNodes[i].innerHTML !== "Nu") 
+        {
+            let test = elem3.childNodes[i].innerHTML;
+            let nr = parseInt(test);
+
+            if (nr > 10) 
+            { 
+                let minus = nr - 10;
+                elem3.childNodes[i].innerHTML = minus + " " + "min";
+            }
+        }
+
+    }
+
+    // var elem = document.getElementById("symbol");
+    // elem.parentNode.removeChild(elem);
+
+    // var elem1 = document.getElementById("first");
+    // elem1.parentNode.removeChild(elem1);
+
+    // var elem2 = document.getElementById("second");
+    // elem2.parentNode.removeChild(elem2);
+
+    // var elem3 = document.getElementById("third");
+    // elem3.parentNode.removeChild(elem3);
 }
