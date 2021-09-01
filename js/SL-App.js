@@ -13,24 +13,23 @@ function ReturnStationNamesForList(charing)
         
         fetch(url)
 
-        .then((reps) => reps.json())
+            .then((reps) => reps.json())
 
-            .then(function (data)
-            {
-
-                document.getElementById("stations").innerHTML = "";
-                
-                let stations = data.ResponseData;
-
-                stations.map(function (station)
+                .then(function (data)
                 {
-                    let div = creatingElement('option');
-
-                    div.innerHTML = station.Name;
+                    document.getElementById("stations").innerHTML = "";
                     
-                    append(optionsList, div);
+                    let stations = data.ResponseData;
+
+                    stations.map(function (station)
+                    {
+                        let div = creatingElement('option');
+
+                        div.innerHTML = station.Name;
+                        
+                        append(optionsList, div);
+                    })
                 })
-            })
     }
 }
 
@@ -170,8 +169,8 @@ function ChangeTime()
     {
         if (elem3.childNodes[i].innerHTML !== "Nu") 
         {
-            let test = elem3.childNodes[i].innerHTML;
-            let nr = parseInt(test);
+            let elementMin = elem3.childNodes[i].innerHTML;
+            let nr = parseInt(elementMin);
 
             if (nr > 5) 
             { 
@@ -179,6 +178,5 @@ function ChangeTime()
                 elem3.childNodes[i].innerHTML = minus + " " + "min";
             }
         }
-
     }
 }
