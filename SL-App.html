@@ -15,7 +15,7 @@
     <input list="stations" onkeyup="ReturnStationNamesForList(stationInput)" type="text" id="stationInput" name="station" placeholder="Hållplats">
     <datalist id="stations"></datalist>
 
-    <input type="radio" id="radioBtn" onclick="ChangeTime()" value="Gångväg">
+    <input type="checkbox" id="radioBtn" onclick="ChangeTime()" value="Gångväg">
     <label for="radioBtn" id="radioLabel">Gångväg</label>
     
     <button type="button" id="searchBtn" onclick="GetStationID(stationInput)" value="Submit form">
