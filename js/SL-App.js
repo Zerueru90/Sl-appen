@@ -161,12 +161,7 @@ function LoopyDoopy(transport)
         lineNumber.innerHTML = transports.LineNumber;
         destinationName.innerHTML = transports.Destination;
         time.innerHTML = transports.DisplayTime;
-
         
-        //convert to int från string och gör minus 10 min
-
-        // document.getElementById("textDisplay-Top").innerHTML = transports.StopAreaName;
-
         append(symbol, transportName);
         append(first, lineNumber);
         append(second, destinationName);
@@ -176,24 +171,14 @@ function LoopyDoopy(transport)
 
 function ChangeTime()
 {
-    // symbol.remove();
-    // first.remove();
-    // second.remove();
-    // third.remove();
-
-    //Info - elem3, man kan få en lång string i elem3.innerHTML eller innerText. Man kan substringa 
-    //och ta värden.
-    //Info2 - elem3, man kan nå strängar i varje div genom elem3.children.div.innerHTML
-
-    //Samla alla third element, gå igenom varje och kolla om värdet är större än 10min. 
-    //Om Ja, så gör minus 10.
-    //Om Nej, låt dem vara?
-
+    
+    let check = document.getElementById("radioBtn")
+    if (check.checked === false) 
+    {
+        var checking = 0;
+    }
     
     var elem3 = document.getElementById("third");
-
-    //elem3.childNodes
-
 
     for (let i = 0; i < elem3.childNodes.length; i++) 
     {
@@ -210,16 +195,9 @@ function ChangeTime()
         }
 
     }
+}
 
-    // var elem = document.getElementById("symbol");
-    // elem.parentNode.removeChild(elem);
-
-    // var elem1 = document.getElementById("first");
-    // elem1.parentNode.removeChild(elem1);
-
-    // var elem2 = document.getElementById("second");
-    // elem2.parentNode.removeChild(elem2);
-
-    // var elem3 = document.getElementById("third");
-    // elem3.parentNode.removeChild(elem3);
+function ChangeTimeBack()
+{
+    document.getElementById("radioBtn").checked = false;
 }
