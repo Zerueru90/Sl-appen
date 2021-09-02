@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/SL-App.css">
+    <script src="js/SL-App.js"></script>
+    <title>SL App</title>
+</head>
+
+<body style="background-image: url(photo-1613499778020-d7cf8aad77.png);">
+    
+    <input list="stations" onkeyup="ReturnStationNamesForList(stationInput)" type="text" id="stationInput" name="station" placeholder="Hållplats">
+    <datalist id="stations"></datalist>
+
+    <input type="checkbox" id="radioBtn" onclick="ChangeTime()" value="Gångväg">
+    <label for="radioBtn" id="radioLabel">Gångväg</label>
+    
+    <button type="button" id="searchBtn" onclick="GetStationID(stationInput)" value="Submit form">
+        <label id="searchBtn-Text">Sök</label>
+    </button>
+
+    <div id="dataDisplay-Top">
+        <div id="textDisplay-Top"></div>
+    </div>
+
+    <div id="dataDisplay">
+        <div id="dataDisplay-Text">
+            <div id="symbol"></div>
+            <div id="first"></div>
+            <div id="second"></div>
+            <div id="third"></div>
+        </div>
+    </div>
+
+</body>
+</html>
