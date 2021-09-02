@@ -9,7 +9,7 @@ function ReturnStationNamesForList(charing)
     {
         const url = `https://cors-anywhere.herokuapp.com/http://api.sl.se/api2/typeahead.json?key=494288bb92614e8cb19a001768f94f65&searchstring=${charing.value}&stationsonly=true`;
 
-        const optionsList = document.getElementById("stations");
+        const optionsList = document.getElementById("stations"); // sätter stationerna i datalist
         
         fetch(url)
 
@@ -59,7 +59,7 @@ function GetStationID(stationName)
                 {
                     if(station.Name === stationName.value) 
                     {
-                        id = station.SiteId;
+                        id = station.SiteId; // sätter id i den globala variabeln
                         document.getElementById("textDisplay-Top").innerHTML = stationName.value;
                     }
                 })
@@ -176,7 +176,23 @@ function ChangeTime()
             { 
                 let minus = nr - 5;
                 elem3.childNodes[i].innerHTML = minus + " " + "min";
+                elem3.childNodes[i].style.backgroundColor = "green";
             }
+            if (nr === 5)
+            {
+                elem3.childNodes[i].innerHTML = "Nu";
+                elem3.childNodes[i].style.backgroundColor = "red";
+            }
+            if (nr < 5)
+            {
+                elem3.childNodes[i].innerHTML = "Hinner inte";
+                elem3.childNodes[i].style.backgroundColor = "red";
+            }
+        }
+        if(elem3.childNodes[i].innerHTML === "Nu") 
+        {
+            elem3.childNodes[i].innerHTML = "Hinner inte";
+            elem3.childNodes[i].style.backgroundColor = "red";
         }
     }
 }
