@@ -162,6 +162,8 @@ function ChangeTime()
     {
         Start();
     }
+
+    var walkingDistance = document.getElementById("selectionList").value;
     
     var elem3 = document.getElementById("third");
 
@@ -172,18 +174,18 @@ function ChangeTime()
             let elementMin = elem3.childNodes[i].innerHTML;
             let nr = parseInt(elementMin);
 
-            if (nr > 5) 
+            if (nr > walkingDistance) 
             { 
-                let minus = nr - 5;
+                let minus = nr - walkingDistance;
                 elem3.childNodes[i].innerHTML = minus + " " + "min";
                 elem3.childNodes[i].style.backgroundColor = "green";
             }
-            if (nr === 5)
+            if (nr == walkingDistance)
             {
                 elem3.childNodes[i].innerHTML = "Nu";
                 elem3.childNodes[i].style.backgroundColor = "red";
             }
-            if (nr < 5)
+            if (nr < walkingDistance)
             {
                 elem3.childNodes[i].innerHTML = "Hinner inte";
                 elem3.childNodes[i].style.backgroundColor = "red";
