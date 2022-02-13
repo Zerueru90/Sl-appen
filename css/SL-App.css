@@ -4,7 +4,7 @@
     overflow: visible;
     width: 25%;
     height: 5%;
-    left: 34%;
+    left: 30%;
     top: 20%;
 
     font-size: x-large;
@@ -19,8 +19,8 @@
 	overflow: visible;
 	width: 5%;
 	height: 5%;
-	left: 60%;
-	top: 20.2%;
+	left: 64%;
+	top: 20.3%;
     border-style: solid;
     border-color: rgb(44, 104, 93);
     opacity: 85% ;
@@ -89,41 +89,68 @@
     font-size: x-large;
 }
 
-#radioBtn{
+#radioBtn_walkingDistance{
     display: flex;
     position: absolute;
 	overflow: visible;
 	width: 3%;
 	height: 4%;
-	left: 72%;
-	top: 30%;
+	left: 71.7%;
+	top: 36%;
     opacity: 85% ;
 }
 
-#radioLabel{
+#radioLabel_walkingDistance{
     display: flex;
     position: absolute;
 	overflow: visible;
 	width: 3%;
 	height: 5%;
-	left: 76%;
-	top: 31%;
+	left: 75%;
+	top: 37%;
     opacity: 85% ;
     color: white;
     font-size:x-large;
 }
 
-#selectionList{
+#selection_walkingDistance{
     display: flex;
     position: absolute;
 	overflow: visible;
 	width: 5%;
 	height: 4%;
 	left: 72.4%;
-	top: 25%;
+	top: 30.5%;
 
     border-style: solid;
     border-color:  rgb(44, 104, 93);
     background-color: white;
     opacity: 85% ;
+}
+
+#selection_TimeWindow{
+    display: flex;
+    position: absolute;
+	overflow: visible;
+    width: 5%;
+    height: 5%;
+	left: 57%;
+	top: 20.2%;
+
+
+    border-style: solid;
+    border-color:  rgb(44, 104, 93);
+    background-color: white;
+    opacity: 85% ;
+}
+
+#selectionLabel_TimeWindow{
+    display: flex;
+    position: absolute;
+	overflow: visible;
+	left: 56.7%;
+	top: 17%;
+    opacity: 85% ;
+    color: white;
+    font-size:x-large;
 }
