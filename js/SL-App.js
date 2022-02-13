@@ -79,7 +79,9 @@ function Start()
 {
     Clean();
 
-    const url = `https://cors-anywhere.herokuapp.com/http://api.sl.se/api2/realtimedeparturesV4.json?key=1c426b82dcf3493a9021f2db8e82717c&siteid=${id}&timewindow=15`;
+    var timeWindow = document.getElementById("selection_TimeWindow").value;
+
+    const url = `https://cors-anywhere.herokuapp.com/http://api.sl.se/api2/realtimedeparturesV4.json?key=1c426b82dcf3493a9021f2db8e82717c&siteid=${id}&timewindow=${timeWindow}`;
 
     fetch(url)
 
@@ -158,12 +160,12 @@ function LoopyDoopy(transport)
 
 function ChangeTime()
 {
-    if (document.getElementById("radioBtn").checked === false) 
+    if (document.getElementById("radioBtn_walkingDistance").checked === false) 
     {
         Start();
     }
 
-    var walkingDistance = document.getElementById("selectionList").value;
+    var walkingDistance = document.getElementById("selection_walkingDistance").value;
     
     var elem3 = document.getElementById("third");
 
