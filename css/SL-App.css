@@ -112,3 +112,18 @@
     color: white;
     font-size:x-large;
 }
+
+#selectionList{
+    display: flex;
+    position: absolute;
+	overflow: visible;
+	width: 5%;
+	height: 4%;
+	left: 72.4%;
+	top: 25%;
+
+    border-style: solid;
+    border-color:  rgb(44, 104, 93);
+    background-color: white;
+    opacity: 85% ;
+}
