@@ -11,12 +11,21 @@
 
 <body style="background-image: url(photo-1613499778020-d7cf8aad77.png);">
     
-    <input list="stations" onkeyup="ReturnStationNamesForList(stationInput)" type="text" id="stationInput" name="station" placeholder="Hållplats">
+    <input list="stations" onkeyup="ReturnStationNamesForList(stationInput)" 
+    type="text" id="stationInput" name="station" placeholder="Hållplats">
     <datalist id="stations"></datalist>
 
-    <input type="checkbox" id="radioBtn" onclick="ChangeTime()" value="Gångväg">
-    <label for="radioBtn" id="radioLabel">Gångväg</label>
-    <select name="distanceToStation" id="selectionList">
+    <label id="selectionLabel_TimeWindow">Tidsfönster</label>
+    <select id="selection_TimeWindow">
+        <option>15</option>
+        <option>20</option>
+        <option>30</option>
+        <option>40</option>
+    </select>
+
+    <input type="checkbox" id="radioBtn_walkingDistance" onclick="ChangeTime()" value="Gångväg">
+    <label for="radioBtn_walkingDistance" id="radioLabel_walkingDistance">Gångväg</label>
+    <select name="distanceToStation" id="selection_walkingDistance">
         <option>5</option>
         <option>10</option>
         <option>15</option>
@@ -26,7 +35,7 @@
     <button type="button" id="searchBtn" onclick="GetStationID(stationInput)" value="Submit form">
         <label id="searchBtn-Text">Sök</label>
     </button>
-
+    
     <div id="dataDisplay-Top">
         <div id="textDisplay-Top"></div>
     </div>
